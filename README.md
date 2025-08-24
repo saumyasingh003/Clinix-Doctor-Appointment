@@ -2,7 +2,7 @@
 
 A comprehensive healthcare management system with separate dashboards for doctors and patients, featuring appointment booking and digital prescription management.
 
-## 🚀 Features
+## Features
 
 ### For Patients
 - **User Registration & Authentication** - Secure JWT-based login system
@@ -18,7 +18,7 @@ A comprehensive healthcare management system with separate dashboards for doctor
 - **Patient Records** - Access patient information and appointment history
 - **Status Updates** - Update appointment status in real-time
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 Clinix Sphere/
@@ -47,7 +47,7 @@ Clinix Sphere/
 └── README.md               # Project documentation
 ```
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **Node.js** - Runtime environment
@@ -66,7 +66,7 @@ Clinix Sphere/
 - **React Hot Toast** - Toast notifications
 - **Lucide React** - Icon library
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before running this project, make sure you have:
 - **Node.js** (v16 or higher)
@@ -128,7 +128,7 @@ npm install
 npm run dev
 ```
 
-The doctor dashboard will be running at `http://localhost:3000`
+The doctor dashboard will be running at `http://localhost:5173`
 
 ### 6. Patient Dashboard Setup
 ```bash
@@ -144,7 +144,7 @@ npm run dev
 
 The patient dashboard will be running at `http://localhost:3001`
 
-## 🔧 Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -162,7 +162,7 @@ JWT_SECRET=your_secure_random_jwt_secret_key
 VITE_API_URL=http://localhost:4000
 ```
 
-## 📱 Usage Guide
+## Usage Guide
 
 ### For Patients
 1. **Register** - Create a new patient account
@@ -178,7 +178,7 @@ VITE_API_URL=http://localhost:4000
 4. **Create Prescriptions** - Add prescriptions for completed appointments
 5. **Manage Records** - Access patient information and history
 
-## 🔐 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /auth/register` - Register new user (doctor/patient)
