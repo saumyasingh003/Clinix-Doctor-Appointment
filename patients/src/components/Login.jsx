@@ -144,7 +144,7 @@ const Login = () => {
             <p className="text-sm text-gray-600">
               Are you a doctor?{" "}
               <a
-                href="http://localhost:3000/login"
+                href="http://localhost:5173/login"
                 className="font-medium text-green-600 hover:text-green-500"
                 target="_blank"
                 rel="noopener noreferrer"
