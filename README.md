@@ -76,21 +76,21 @@ Before running this project, make sure you have:
 ## 📸 Screenshots
 
 ### Patient Dashboard
-![Patient Login](./demonstration/1.jpg)
-*Patient login interface with clean, modern design*
-
-![Patient Dashboard](./demonstration/2.jpg)
+![Patient Dashboard](./demonstration/1.jpg)
 *Patient dashboard showing appointment booking and management*
 
-### Doctor Dashboard
-![Doctor Login](./demonstration/3.jpg)
-*Doctor login interface with professional medical theme*
-
-![Doctor Dashboard](./demonstration/4.jpg)
+![Doctor Dashboard](./demonstration/2.jpg)
 *Doctor dashboard for managing appointments and patient records*
 
-![Prescription Management](./demonstration/5.jpg)
-*Digital prescription creation interface*
+### Doctor Dashboard
+![Doctor Appointment Details](./demonstration/3.jpg)
+*Doctor Appointment Details page*
+
+![Patient Book Appointment Page](./demonstration/4.jpg)
+
+
+![Prescription Page](./demonstration/5.jpg)
+
 
 ## 🚀 Installation & Setup
 
