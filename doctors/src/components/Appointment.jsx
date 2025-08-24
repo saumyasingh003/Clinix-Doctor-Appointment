@@ -127,9 +127,9 @@ const Appointment = () => {
                 Back to Dashboard
               </button>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">
+            {/* <h1 className="text-2xl font-bold text-gray-900">
               Appointment Details
-            </h1>
+            </h1> */}
             <div></div> {/* Spacer */}
           </div>
         </div>
