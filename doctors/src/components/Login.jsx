@@ -57,7 +57,7 @@ const Login = () => {
       <div className="hidden lg:block absolute w-full h-full bg-opacity-40 z-0"></div>
 
       {/* Login form */}
-      <div className="relative z-10 w-full max-w-md mx-auto lg:ml-64 xl:ml-80">
+      <div className="relative z-10 w-full max-w-md mx-auto ">
         <div className="bg-white rounded-2xl  p-6 sm:p-8 lg:p-12 lg:bg-opacity-95">
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-gray-800 mb-2">
