@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 import {
   FiArrowLeft,
   FiUser,
@@ -9,6 +8,7 @@ import {
   FiFileText,
 } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import doctorApi from "../utils/api";
 
 const Appointment = () => {
   const { appointmentId } = useParams();
@@ -17,23 +17,12 @@ const Appointment = () => {
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState(false);
 
-  // Create an axios instance with JWT token
-  const axiosInstance = () => {
-    const token = localStorage.getItem("doctorToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    return instance;
-  };
 
   
   const fetchAppointment = async () => {
     try {
-      const response = await axiosInstance().get(`/app/${appointmentId}`);
+      const response = await doctorApi.get(`/app/${appointmentId}`);
       setAppointment(response.data.appointment);
     } catch (error) {
       console.error("Error fetching appointment:", error);
@@ -52,7 +41,7 @@ const Appointment = () => {
 
     setUpdatingStatus(true);
     try {
-      await axiosInstance().patch(
+      await doctorApi.patch(
         `/doctors/appointments/${appointmentId}/status`,
         {
           status: newStatus,

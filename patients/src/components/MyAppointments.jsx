@@ -1,31 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiCalendar, FiClock, FiUser, FiArrowLeft, FiCheck, FiX, FiEye } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import patientApi from "../utils/api";
 
 const MyAppointments = () => {
   const navigate = useNavigate();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Create an axios instance with JWT token
-  const axiosInstance = () => {
-    const token = localStorage.getItem("patientToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    return instance;
-  };
 
   // Fetch patient appointments
   const fetchAppointments = async () => {
     try {
-      const response = await axiosInstance().get("/app/my-appointments");
+      const response = await patientApi.get("/app/my-appointments");
       setAppointments(response.data.appointments || []);
     } catch (error) {
       console.error("Error fetching appointments:", error);

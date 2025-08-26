@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import { FiPlus, FiTrash2 } from 'react-icons/fi';
+import doctorApi from '../utils/api';
 
 const Prescription = () => {
   const { appointmentId } = useParams();
@@ -18,22 +18,12 @@ const Prescription = () => {
   const [submitting, setSubmitting] = useState(false);
 
   // Create an axios instance with JWT token
-  const axiosInstance = () => {
-    const token = localStorage.getItem("doctorToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    return instance;
-  };
 
   // Fetch appointment details
   const fetchAppointment = async () => {
     try {
-      const response = await axiosInstance().get(`/app/${appointmentId}`);
+      const response = await doctorApi.get(`/app/${appointmentId}`);
       setAppointment(response.data.appointment);
     } catch (error) {
       console.error("Error fetching appointment:", error);
@@ -74,7 +64,7 @@ const Prescription = () => {
     setSubmitting(true);
 
     try {
-      await axiosInstance().post(`/prescriptions/${appointmentId}`, prescriptionData);
+      await doctorApi.post(`/prescriptions/${appointmentId}`, prescriptionData);
       toast.success("Prescription created successfully!");
       navigate('/');
     } catch (error) {

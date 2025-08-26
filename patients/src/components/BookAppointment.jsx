@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiCalendar, FiClock, FiUser, FiMessageSquare, FiArrowLeft } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import patientApi from "../utils/api";
 
 const BookAppointment = () => {
   const navigate = useNavigate();
@@ -15,21 +15,11 @@ const BookAppointment = () => {
     reason: "",
   });
 
-  const axiosInstance = () => {
-    const token = localStorage.getItem("patientToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    return instance;
-  };
 
   const fetchDoctors = async () => {
     try {
-      const response = await axiosInstance().get("/doctors/all");
+      const response = await patientApi.get("/doctors/all");
       setDoctors(response.data.doctors || []);
     } catch (error) {
       console.error("Error fetching doctors:", error);
@@ -78,7 +68,7 @@ const BookAppointment = () => {
         reason: formData.reason,
       };
 
-      await axiosInstance().post("/app/book", appointmentData);
+      await patientApi.post("/app/book", appointmentData);
       toast.success("Appointment booked successfully!");
       navigate("/my-appointments");
     } catch (error) {

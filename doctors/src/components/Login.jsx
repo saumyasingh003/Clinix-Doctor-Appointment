@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import { authApi } from "../utils/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:4000/auth/login", formData);
+      const response = await authApi.post("/auth/login", formData);
       const { token, user } = response.data;
 
       if (user.role !== "doctor") {

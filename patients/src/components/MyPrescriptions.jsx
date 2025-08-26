@@ -1,31 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiFileText, FiUser, FiCalendar, FiArrowLeft, FiDownload } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import patientApi from "../utils/api";
 
 const MyPrescriptions = () => {
   const navigate = useNavigate();
   const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Create an axios instance with JWT token
-  const axiosInstance = () => {
-    const token = localStorage.getItem("patientToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    return instance;
-  };
 
   // Fetch patient prescriptions
   const fetchPrescriptions = async () => {
     try {
-      const response = await axiosInstance().get("/prescriptions/patient/my-prescriptions");
+      const response = await patientApi.get("/prescriptions/patient/my-prescriptions");
       setPrescriptions(response.data.prescriptions || []);
     } catch (error) {
       console.error("Error fetching prescriptions:", error);

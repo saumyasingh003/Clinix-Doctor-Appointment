@@ -1,39 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiCalendar, FiFileText, FiUser, FiLogOut } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import patientApi from "../utils/api";
 
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const axiosInstance = () => {
-    const token = localStorage.getItem("patientToken");
-    const instance = axios.create({
-      baseURL: "http://localhost:4000",
-      headers: {
-        Authorization: token ? `Bearer ${token}` : "",
-      },
-    });
 
-    instance.interceptors.response.use(
-      (response) => response,
-      (error) => {
-        if (error.response?.status === 401) {
-          toast.error("Patient not authorized. Please login.");
-          localStorage.removeItem("patientToken");
-          navigate("/login");
-        } else {
-          toast.error(error.response?.data?.message || "Something went wrong!");
-        }
-        return Promise.reject(error);
-      }
-    );
-
-    return instance;
-  };
 
   useEffect(() => {
     const token = localStorage.getItem("patientToken");

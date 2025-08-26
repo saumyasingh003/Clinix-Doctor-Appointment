@@ -1,34 +1,10 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { FiEdit, FiSmile, FiScissors, FiLogOut, FiCalendar, FiFileText, FiUser } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import doctorApi from "../utils/api";
 
-const axiosInstance = () => {
-  const token = localStorage.getItem("doctorToken");
-  const instance = axios.create({
-    baseURL: "http://localhost:4000",
-    headers: {
-      Authorization: token ? `Bearer ${token}` : "",
-    },
-  });
 
-  instance.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      if (error.response?.status === 401) {
-        toast.error("Doctor not authorized. Please login.");
-        localStorage.removeItem("doctorToken");
-        window.location.href = "/login";
-      } else {
-        toast.error(error.response?.data?.message || "Something went wrong!");
-      }
-      return Promise.reject(error);
-    }
-  );
-
-  return instance;
-};
 
 const Home = () => {
   const navigate = useNavigate();
@@ -45,7 +21,7 @@ const Home = () => {
     }
 
     try {
-      const response = await axiosInstance().get("/doctors/appointments");
+      const response = await doctorApi.get("/doctors/appointments");
       setAppointments(response.data.appointments || []);
     } catch (error) {
       console.error(error);
@@ -81,7 +57,7 @@ const Home = () => {
 
   const handleStatusChange = async (appointmentId, newStatus) => {
     try {
-      await axiosInstance().patch(`/doctors/appointments/${appointmentId}/status`, {
+      await doctorApi.patch(`/doctors/appointments/${appointmentId}/status`, {
         status: newStatus
       });
 

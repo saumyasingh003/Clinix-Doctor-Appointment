@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import toast, { Toaster } from "react-hot-toast";
+import { authApi } from "../utils/api";
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ const RegisterPage = () => {
         role: "doctor",
       };
 
-      const response = await axios.post("http://localhost:4000/auth/register", registerData);
+      const response = await authApi.post("/auth/register", registerData);
       toast.success("Registration successful! Please login.");
       navigate("/login");
     } catch (error) {
