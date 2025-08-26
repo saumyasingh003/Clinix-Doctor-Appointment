@@ -47,16 +47,16 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      {/* Background image - hidden on mobile and tablet */}
+  
       <img
         src="/doctor.jpeg"
         alt="background"
         className="hidden lg:block absolute w-full h-full object-cover z-0"
       />
-      {/* Dark overlay - only on desktop */}
+    
       <div className="hidden lg:block absolute w-full h-full bg-opacity-40 z-0"></div>
 
-      {/* Login form */}
+
       <div className="relative z-10 w-full max-w-md mx-auto ">
         <div className="bg-white rounded-2xl  p-6 sm:p-8 lg:p-12 lg:bg-opacity-95">
           <div className="text-center mb-8">
