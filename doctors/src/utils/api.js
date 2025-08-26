@@ -10,7 +10,7 @@ const getBaseURL = () => {
 };
 
 const createPatientApi = () => {
-  const token = localStorage.getItem('patientToken');
+  const token = localStorage.getItem('doctorToken');
 
   const instance = axios.create({
     baseURL: getBaseURL(),
