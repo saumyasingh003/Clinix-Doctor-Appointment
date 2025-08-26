@@ -2,12 +2,12 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import { connectDB } from "./db.js";
+import { connectDB } from "../db.js";
 
-import authRoutes from "./routes/user.js";
-import appointmentRoutes from './routes/appointment.js';
-import doctorRoutes from './routes/doctor.js';
-import  prescriptionRoutes from './routes/prescription.js'
+import authRoutes from "../routes/user.js";
+import appointmentRoutes from '../routes/appointment.js';
+import doctorRoutes from '../routes/doctor.js';
+import  prescriptionRoutes from '../routes/prescription.js'
 
 dotenv.config();
 const app = express();
