@@ -33,7 +33,7 @@ const Login = () => {
         setLoading(false);
         return;
       }
-
+      
       localStorage.setItem("patientToken", token);
       toast.success("Login successful!");
       navigate("/");

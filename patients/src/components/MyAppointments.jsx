@@ -130,7 +130,7 @@ const MyAppointments = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">
-                      Dr. {appointment.doctor?.name || "Unknown"}
+                      {appointment.doctor?.name || "Unknown"}
                     </h3>
                     <p className="text-sm text-gray-500">
                       {appointment.doctor?.email || "N/A"}

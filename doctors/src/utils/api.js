@@ -20,23 +20,11 @@ const createPatientApi = () => {
     },
   });
 
-  // Add response interceptor for error handling
-  instance.interceptors.response.use(
-    (response) => response,
-    (error) => {
-      if (error.response?.status === 401) {
-        // Token expired or invalid, clear local storage and redirect
-        localStorage.removeItem('patientToken');
-        window.location.href = '/login';
-      }
-      return Promise.reject(error);
-    }
-  );
 
   return instance;
 };
 
-// Create axios instance for authentication (without auth header)
+
 const createAuthApi = () => {
   const instance = axios.create({
     baseURL: getBaseURL(),
@@ -48,7 +36,7 @@ const createAuthApi = () => {
   return instance;
 };
 
-// Export the configured axios instances
+
 const patientApi = createPatientApi();
 const authApi = createAuthApi();
 

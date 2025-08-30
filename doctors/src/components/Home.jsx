@@ -96,7 +96,7 @@ const Home = () => {
               <div className="text-xl font-bold text-gray-900">Clinix Sphere - Doctor Portal</div>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-gray-700">Welcome, Dr. {user?.name || "Doctor"}</span>
+              <span className="text-gray-700">Welcome, {user?.name || "Doctor"}</span>
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-2 cursor-pointer text-gray-600 hover:text-gray-900 transition-colors"
