@@ -180,10 +180,10 @@ const MyAppointments = () => {
                       View Prescription
                     </Link>
                   )}
-                  <button className="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 text-sm flex items-center justify-center space-x-1">
+                  {/* <button className="flex-1 bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 text-sm flex items-center justify-center space-x-1">
                     <FiEye className="h-4 w-4" />
                     <span>Details</span>
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ))}

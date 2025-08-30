@@ -105,10 +105,10 @@ const MyPrescriptions = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg hover:bg-blue-200 text-sm flex items-center space-x-1">
+                  {/* <button className="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg hover:bg-blue-200 text-sm flex items-center space-x-1">
                     <FiDownload className="h-4 w-4" />
                     <span>Download</span>
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* Symptoms */}
